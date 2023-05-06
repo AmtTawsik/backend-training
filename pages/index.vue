@@ -57,7 +57,6 @@
 </template>
 
 <script setup>
-	// import { useMyRealmApp } from "~~/composables/useRealm";
 	const { app, Realm, fetchData } = useMyRealmApp();
 	const email = ref(null);
 	const password = ref(null);
@@ -67,7 +66,6 @@
 	});
 
 	const login = async () => {
-		// @TODO: check if email and pass are not null
 		const credentials = Realm.Credentials.emailPassword(
 			email.value,
 			password.value
@@ -82,13 +80,13 @@
 					fetchData()
 				}
 				else{
-					navigateTo("/secret")
+					navigateTo("/users")
 				}
 			});
-			navigateTo("/secret");
+			navigateTo("/users");
 		});
-		// console.assert(user.id === app.currentUser.id);
 	};
+	// http://mongoauthtest.s3-website.eu-west-2.amazonaws.com/
 </script>
 
 <style scoped></style>
